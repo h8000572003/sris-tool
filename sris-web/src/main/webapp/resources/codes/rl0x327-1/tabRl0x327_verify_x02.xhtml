@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:rist="http://risfaces.iisigroup.com/rist"
+	xmlns:ris="http://java.sun.com/jsf/composite/ris">
+
+	<!-- RL0x327  職權更正  -->
+	<p:tab title="職權更正內容">
+
+
+
+
+
+		<table>
+			<tr>
+				<th width="16%">職權更正配賦檔：</th>
+				<td>#{rl0x327Controller.dto.title}</td>
+			</tr>
+			<tr>
+				<th>職權更正類別：</th>
+				<td><p:outputPanel
+						rendered="#{rl0x327Controller.dto.mainDTO.businessType == 'A'}">新增
+						</p:outputPanel> <p:outputPanel
+						rendered="#{rl0x327Controller.dto.mainDTO.businessType == 'M'}">修改
+						</p:outputPanel> <p:outputPanel
+						rendered="#{rl0x327Controller.dto.mainDTO.businessType =='D'}">刪除					
+						</p:outputPanel></td>
+			</tr>
+
+
+		</table>
+
+
+
+		<p:dataTable value="#{rl0x327Controller.dto.editResult}" var="info"
+			paginator="true" rows="10" style="text-align:center;margin-top:20px;"
+			rowsPerPageTemplate="5,10,15" rowIndexVar="rowIndex"
+			emptyMessage="無資料"
+			rowStyleClass="#{info.modifyValue=='*' and rl0x327Controller.dto.mainDTO.businessType == 'M'?'ui-state-highlight':''}"
+			paginatorTemplate="#{risUIConstants.paginatorJumpToPageTemplate}">
+
+			<p:column style="text-align:left;">
+				<f:facet name="header">
+					<h:outputText value="欄位名稱" />
+				</f:facet>
+				<p:outputPanel
+					rendered="#{fn:trim(info.type.isPk)=='Y' or fn:trim(info.type.isNecessary)=='Y'}">
+					<ris:requiredSymbol />
+				</p:outputPanel>
+				<h:outputText value="#{info.type.columnName}" />
+			</p:column>
+
+
+
+			<p:column style="text-align:left;">
+				<f:facet name="header">
+					<h:outputText
+						value="#{rl0x327Controller.dto.mainDTO.businessType != 'M'?'欄位內容':'更正前欄位內容'}" />
+				</f:facet>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='1'}">
+					<p:inputText value="#{info.field1}" readonly="true"
+						styleClass="readonly-input"
+						maxlength="#{fn:trim(info.type.dataMaxLength)}">
+					</p:inputText>
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='2'}">
+					<p:selectBooleanCheckbox value="#{info.field1}" disabled="true"
+						label="#{info.checkBoxLabel}" />#{info.checkBoxLabel}
+						</p:outputPanel>
+
+				<p:outputPanel rendered="#{info.type.dataType=='3'}">
+
+					<p:inputText value="#{info.codeLabel}" readonly="true"
+						styleClass="readonly-input">
+
+
+					</p:inputText>
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='4'}">
+					<ris:calendar showCalendar="true" showTime="false"
+						styleClass="readonly-input" readonly="true"
+						calDateValue="#{info.field1}" />
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='5'}">
+
+					<h:selectOneRadio value="#{info.field1}" style="width:150px"
+						disabled="true">
+						<f:selectItem itemLabel="Y" itemValue="Y" />
+						<f:selectItem itemLabel="N" itemValue="" />
+
+					</h:selectOneRadio>
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='6'}">
+
+					<h:selectOneRadio value="#{info.field1}" style="width:150px"
+						disabled="true">
+						<f:selectItem itemLabel="Y" itemValue="VP" />
+						<f:selectItem itemLabel="N" itemValue="" />
+
+					</h:selectOneRadio>
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='7'}">
+					<ris:year value="#{info.field1}" styleClass="readonly-input"
+						readonly="true" />
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='8'}">
+					<ris:calendar showCalendar="false" showTime="true"
+						componentId="time1" styleClass="readonly-input" readonly="true"
+						dateTimeValue="#{info.field1}" showSecond="true" />
+				</p:outputPanel>
+
+			</p:column>
+
+			<p:column style="text-align:left;"
+				rendered="#{rl0x327Controller.dto.mainDTO.businessType=='M'}">
+				<f:facet name="header">
+					<h:outputText
+						value="#{rl0x327Controller.dto.mainDTO.businessType != 'M'?'欄位內容':'更正後欄位內容'}" />
+				</f:facet>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='1'}">
+					<p:inputText value="#{info.newField1}" readonly="true"
+						styleClass="readonly-input"
+						maxlength="#{fn:trim(info.type.dataMaxLength)}">
+					</p:inputText>
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='2'}">
+					<p:selectBooleanCheckbox value="#{info.newField1}"
+						label="#{info.checkBoxNewLabel}" disabled="true" />#{info.checkBoxNewLabel}
+						</p:outputPanel>
+
+				<p:outputPanel rendered="#{info.type.dataType=='3'}">
+					<p:inputText value="#{info.newCodeLabel}" readonly="true"
+						styleClass="readonly-input">
+					</p:inputText>
+				</p:outputPanel>
+
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='4'}">
+					<ris:calendar showCalendar="true" showTime="false"
+						styleClass="readonly-input" readonly="true"
+						calDateValue="#{info.newField1}" />
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='5'}">
+					<table>
+						<tr>
+							<td width="20%"><rist:selectOneRadio
+									value="#{info.newfield1}" style="width:150px"
+									category="RSCD3540" disabled="true" /></td>
+							<td></td>
+						</tr>
+					</table>
+
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='6'}">
+					<table>
+						<tr>
+							<td width="20%"><h:selectOneRadio value="#{info.newField1}"
+									style="width:150px" disabled="true">
+									<f:selectItem itemLabel="Y" itemValue="VP" />
+									<f:selectItem itemLabel="N" itemValue="" />
+
+								</h:selectOneRadio></td>
+							<td></td>
+						</tr>
+					</table>
+
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='7'}">
+					<ris:year value="#{info.newField1}" styleClass="readonly-input"
+						readonly="true" />
+				</p:outputPanel>
+
+
+				<p:outputPanel rendered="#{info.type.dataType=='8'}">
+					<ris:calendar showCalendar="false" showTime="true"
+						styleClass="readonly-input" readonly="true" componentId="time2"
+						dateTimeValue="#{info.newField1}" showSecond="true" />
+				</p:outputPanel>
+
+				<p:outputPanel>
+					<h:outputLabel
+						rendered="#{info.type.dataType!='5' and info.type.dataType!='6'}"
+						value="" />
+				</p:outputPanel>
+			</p:column>
+
+
+
+		</p:dataTable>
+
+		<table width="100%" border="0">
+			<tr>
+				<th width="15%"><h:outputText value="職權更正原因：" /></th>
+				<td><h:inputTextarea value="#{rl0x327Controller.dto.reason}"
+						style="width:100%;height:60px;" styleClass="readonly-input"
+						readonly="true" /></td>
+			</tr>
+		</table>
+
+
+		<ui:include src="../rl0x001_showModifyDetail.xhtml" />
+		<p:commandButton value="顯示欄位項目"
+			action="#{rlx001SetBean2.showDamnModifyDetail(rl0x327Controller.dto.editResult)}"
+			oncomplete="rl0x001_showModifyDetailDialog.show();"
+			update="rl0x001_showModifyDetail_dataTable" />
+
+		<p:commandButton value="核准"
+			action="#{rl0x327Controller.doSumitFromVerificationPage}" />
+		<p:commandButton value="核退"
+			action="#{rl0x327Controller.doRejectFromVerificationPage}" />
+		<p:commandButton value="回上一畫面" action="#{rl0x327Controller.toVerity}" />
+
+#{rl0x327Controller.dto.mainDTO.transactionId}
+
+	</p:tab>
+</ui:composition>

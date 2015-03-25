@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+
+		<p:dialog modal="true" widgetVar="statusDialog" header="Status"
+			draggable="false" closable="false" resizable="false">
+
+		</p:dialog>
+
+
+		<p:commandButton value="Download" ajax="false"
+			onclick="PrimeFaces.monitorDownload(start, stop);"
+			icon="ui-icon-arrowthick-1-s">
+			<p:fileDownload value="#{exportController.file}" />
+		</p:commandButton>
+	</h:form>
+
+	<h:form>
+		<h:panelGrid border="1" columns="2">
+			<h:outputText value="item1"></h:outputText>
+			<h:outputText value="#{exportController.dto.newFun}"></h:outputText>
+			<h:outputText value="item3"></h:outputText>
+			<h:outputText value="item4"></h:outputText>
+		</h:panelGrid>
+		<h:commandButton value="send"
+			actionListener="#{exportController.send}"></h:commandButton>
+	</h:form>
+	<h:form>
+
+	</h:form>
+	<script type="text/javascript">
+		function start() {
+			PF('statusDialog').show();
+		}
+
+		function stop() {
+			PF('statusDialog').hide();
+		}
+	</script>
+
+
+
+
+
+	<p:spinner />
+
+</h:body>
+</html>

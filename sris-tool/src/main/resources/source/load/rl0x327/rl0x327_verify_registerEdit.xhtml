@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ris="http://java.sun.com/jsf/composite/ris"
+	xmlns:rist="http://risfaces.iisigroup.com/rist"
+	template="/WEB-INF/template/default.xhtml">
+
+	<!-- RL0x327  職權更正  -->
+
+	<ui:define name="right">
+		<ris:breadCrumb />
+		<ris:statusDialog />
+
+		<p:panel header="職權更正審核" id="rl0x327">
+			<p:fieldset style="border-style:hidden;">
+
+				<p:tabView>
+
+					<!-- 職權更正內容  -->
+					<ui:include src="tabRl0x327_verify_registerEdit.xhtml" />
+					<!-- 職權記事內容  -->
+<!-- 					<ui:include src="tabRl0x327_verify_registerEdit_note.xhtml" /> -->
+				</p:tabView>
+			</p:fieldset>
+		</p:panel>
+		<ui:include src="../rl0xSetDialog.xhtml" />
+	</ui:define>
+
+</ui:composition>

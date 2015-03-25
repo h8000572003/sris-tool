@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ris="http://java.sun.com/jsf/composite/ris"
+	xmlns:rist="http://risfaces.iisigroup.com/rist"
+	template="/WEB-INF/template/default.xhtml">
+
+	<!-- RL0x327  職權更正  -->
+
+	<ui:define name="right">
+		<ris:breadCrumb />
+		<ris:statusDialog />
+
+		<!-- 		<p:panel header="職權更正申請" id="tabMain"> -->
+		<p:panel header="職權更正申請">
+
+			<p:remoteCommand name="toDetial"
+				action="rl0x327.xhtml?faces-redirect=true" />
+			<p:fieldset legend="查詢條件" id="rldf0x327QueryUpdataFieldset">
+				<table width="100%">
+
+
+					<ui:repeat value="#{rl0x327Controller.dto.quertDto}" var="info">
+						<p:outputPanel
+							rendered="#{info.type.isQueryCondition=='Y' and info.type.state=='Y'}">
+
+							<tr>
+								<th width="10%"><ris:requiredSymbol /> <h:outputLabel
+										value="#{info.type.columnName}：">
+									</h:outputLabel></th>
+								<td><p:outputPanel>
+										<p:inputText value="#{info.field1}"
+											rendered="#{info.type.dataType=='1' }"
+											maxlength="#{fn:trim(info.type.dataMaxLength)}">
+										</p:inputText>
+
+									</p:outputPanel> <p:outputPanel>
+										<p:selectBooleanCheckbox value="#{info.field1}"
+											label="#{info.checkBoxNewLabel}"
+											rendered="#{info.type.dataType=='2' }">
+										</p:selectBooleanCheckbox>
+									</p:outputPanel> <p:outputPanel>
+										<p:inputText value="#{info.field1}" readonly="true" styleClass="readonly-input"
+											rendered="#{info.type.dataType=='3' }">
+											<rist:convertCode category="RSCD0116" />
+										</p:inputText>
+									</p:outputPanel> <br /></td>
+							</tr>
+						</p:outputPanel>
+					</ui:repeat>
+					<tr>
+						<td><p:commandButton value="查詢" oncomplete="updateResult();"
+								action="#{rl0x327Controller.doQuery}" /></td>
+					</tr>
+
+
+
+
+
+				</table>
+			</p:fieldset>
+
+			<p:remoteCommand name="updateResult" update="rl0x327Queryfieldset"></p:remoteCommand>
+			<p:fieldset legend="查詢結果" id="rl0x327Queryfieldset">
+
+				<p:remoteCommand name="doDetail"
+					action="#{rl0x327Controller.setQueryResult}" />
+
+				<!-- 查詢資料-->
+				<p:dataTable rowKey="#{info}" selectionMode="single"
+					emptyMessage="#{risUIConstants.emptyMessage}"
+					selection="#{rl0x327Controller.dto.selectData}"
+					value="#{rl0x327Controller.dto.resutlts}" var="info">
+					<p:ajax event="rowSelect" oncomplete="doDetail();" />
+
+
+					<p:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="統號" />
+						</f:facet>
+						<h:outputText value="#{info.personId}" />
+					</p:column>
+
+					<p:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="配偶統號" />
+						</f:facet>
+						<h:outputText value="#{info.spouseId}" />
+					</p:column>
+
+
+					<p:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="更新日期" />
+						</f:facet>
+						<h:outputText value="#{info.updateYyymmdd}">
+							<rist:convertCalendar category="YEAR_MONTH_DAY" />
+						</h:outputText>
+					</p:column>
+					
+					<p:column style="text-align:center;">
+						<f:facet name="header">
+							<h:outputText value="更新時間" />
+						</f:facet>
+						<h:outputText value="#{info.updateHhmmss}">
+							<rist:convertTime category="HOUR_MINUTE_SECOND" />
+						</h:outputText>
+					</p:column>
+					
+
+
+				</p:dataTable>
+
+
+			</p:fieldset>
+
+			<p:commandButton value="回上一畫面" action="#{rl0x327Controller.toMain}" />
+
+		</p:panel>
+
+
+
+	</ui:define>
+
+</ui:composition>
