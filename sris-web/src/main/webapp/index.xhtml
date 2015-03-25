@@ -11,34 +11,91 @@
 
 <h:body>
 
+
+
+
+
+	<h1>職權更正產生器</h1>
+
+
 	<h:form>
+		<p:panel>
+
+			<p:fieldset legend="產生條件">
 
 
-		<p:dialog modal="true" widgetVar="statusDialog" header="Status"
-			draggable="false" closable="false" resizable="false">
+				
 
-		</p:dialog>
+				<h:panelGrid columns="2" border="0" cellspacing="5px">
+					<h:outputLabel value="使用TABLE:"></h:outputLabel>
+					<h:inputText value="#{exportController.dto.newTable}">
+					</h:inputText>
+
+					<h:outputLabel value="功能代碼():"></h:outputLabel>
+					<h:inputText value="#{exportController.dto.newFun}">
+					</h:inputText>
 
 
-		<p:commandButton value="Download" ajax="false"
-			onclick="PrimeFaces.monitorDownload(start, stop);"
-			icon="ui-icon-arrowthick-1-s">
-			<p:fileDownload value="#{exportController.file}" />
-		</p:commandButton>
+					<h:outputLabel value="新記錄檔:"></h:outputLabel>
+					<h:inputText value="#{exportController.dto.newRec}">
+					</h:inputText>
+
+				</h:panelGrid>
+
+
+				<p:commandButton value="產生" action="#{exportController.send()}"></p:commandButton>
+			</p:fieldset>
+		</p:panel>
 	</h:form>
 
-	<h:form>
-		<h:panelGrid border="1" columns="2">
-			<h:outputText value="item1"></h:outputText>
-			<h:outputText value="#{exportController.dto.newFun}"></h:outputText>
-			<h:outputText value="item3"></h:outputText>
-			<h:outputText value="item4"></h:outputText>
-		</h:panelGrid>
-		<h:commandButton value="send"
-			actionListener="#{exportController.send}"></h:commandButton>
-	</h:form>
+
 	<h:form>
 
+
+
+
+
+
+		<p:panel>
+
+			<p:fieldset legend="產生檔案">
+
+
+
+
+
+				<p:dataTable var="file" value="#{exportController.dto.files}">
+					<p:column headerText="檔案">
+						<h:outputText value="#{file.name}" />
+					</p:column>
+
+					<p:column headerText="路徑">
+						<h:outputText value="#{file.url}" />
+					</p:column>
+
+
+					<p:column headerText="下載">
+						<p:commandButton value="Download" ajax="false"
+							actionListener="#{exportController.download(file)}"
+							onclick="PrimeFaces.monitorDownload(start, stop);"
+							icon="ui-icon-arrowthick-1-s">
+							<p:fileDownload value="#{exportController.file}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+			</p:fieldset>
+
+			<p:commandButton value="全部下載" ajax="false"
+				actionListener="#{exportController.downloadAll()}"
+				onclick="PrimeFaces.monitorDownload(start, stop);"
+				icon="ui-icon-arrowthick-1-s">
+				<p:fileDownload value="#{exportController.file}" />
+			</p:commandButton>
+
+
+
+		</p:panel>
 	</h:form>
 	<script type="text/javascript">
 		function start() {
@@ -54,7 +111,10 @@
 
 
 
-	<p:spinner />
+	<h:dataTable>
+
+
+	</h:dataTable>
 
 </h:body>
 </html>

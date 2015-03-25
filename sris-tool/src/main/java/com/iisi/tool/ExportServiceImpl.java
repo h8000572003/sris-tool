@@ -7,9 +7,13 @@
 package com.iisi.tool;
 
 import java.io.File;
-import java.net.URISyntaxException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.faces.context.FacesContext;
 
@@ -35,13 +39,17 @@ public class ExportServiceImpl implements ExportService {
 	@Autowired
 	private transient FileExport fileExport;
 
+	@Autowired
+	private ZipComent zipComent;
+
 	public void export(DTO dto) {
 
 		try {
 			String path = FacesContext.getCurrentInstance()
 					.getExternalContext().getResource("/resources/codes/")
 					.getPath();
-			File folder = null;
+			File folder = new File(path);
+			folder.deleteOnExit();
 
 			final List<File> files = new ArrayList<File>();
 
@@ -63,12 +71,41 @@ public class ExportServiceImpl implements ExportService {
 			for (File proFile : files) {
 				this.proFile(proFile, dto);
 			}
+			this.makeZip(dto);
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 		// TODO Auto-generated method stub
+
+	}
+
+	private void makeZip(DTO dto) {
+
+		try {
+			final String path = FacesContext.getCurrentInstance()
+					.getExternalContext().getResource("/resources/out/")
+					.getPath();
+			
+			
+			final String zipath = FacesContext.getCurrentInstance()
+					.getExternalContext().getResource("/resources/zip/")
+					.getPath();
+			
+
+		
+
+			File folder = new File(path);
+
+			File outFile = new File(zipath, "/out.zip");
+			outFile.deleteOnExit();
+
+			zipComent.makeZip(folder, outFile);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -84,13 +121,28 @@ public class ExportServiceImpl implements ExportService {
 		content = content.replaceAll(dto.getOldTable(), dto.getNewTable());
 		content = content.replaceAll(dto.getOldRec(), dto.getNewRec());
 
-		String newFileName = proFile.getAbsolutePath().replace(dto.getOldFun(),
-				dto.getNewFun());
-		newFileName = newFileName.replace(dto.getPath(), dto.getOutPath());
+		try {
 
-		fileExport.export(content, newFileName);
+			String path = FacesContext.getCurrentInstance()
+					.getExternalContext().getResource("/resources/out/")
+					.getPath();
 
-		LOG.debug("out file name={}", newFileName);
+			String outPut = path
+					+ proFile.getName().replace(dto.getOldFun(),
+							dto.getNewFun());
+
+			;
+
+			dto.getFiles().add(
+					new DownLoadDTO(outPut, new File(outPut).getName()));
+
+			fileExport.export(content, outPut);
+			dto.setNewOutPutPath(outPut);
+			LOG.debug("out file name={}", outPut);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 	// ================================================
 	// == [Enumeration types] Block Start

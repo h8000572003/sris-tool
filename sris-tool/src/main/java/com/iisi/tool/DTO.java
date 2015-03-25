@@ -7,120 +7,145 @@
 package com.iisi.tool;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  */
 public class DTO implements Serializable {
 
-    private String path;
-    private String outPath;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String path;
+	private String outPath;
 
-    private String oldFun;
-    private String newFun;
+	private String oldFun;
+	private String newFun;
 
-    private String oldTable;
-    private String newTable;
+	private String oldTable;
+	private String newTable;
 
-    private String oldRec;
-    private String newRec;
+	private String oldRec;
+	private String newRec;
+	private String newOutPutPath = "";
 
-    public String getOldTable() {
-        return this.oldTable;
-    }
+	private List<DownLoadDTO> files = new ArrayList<DownLoadDTO>();
 
-    public void setOldTable(String oldTable) {
-        this.oldTable = oldTable;
-    }
+	public List<DownLoadDTO> getFiles() {
+		return files;
+	}
 
-    public String getNewTable() {
-        return this.newTable;
-    }
+	public void setFiles(List<DownLoadDTO> files) {
+		this.files = files;
+	}
 
-    public void setNewTable(String newTable) {
-        this.newTable = newTable;
-    }
+	public String getOldTable() {
+		return this.oldTable;
+	}
 
-    public String getOldFun() {
-        return this.oldFun;
-    }
+	public void setOldTable(String oldTable) {
+		this.oldTable = oldTable;
+	}
 
-    public void setOldFun(String oldFun) {
-        this.oldFun = oldFun;
-    }
+	public String getNewTable() {
+		return this.newTable;
+	}
 
-    public String getNewFun() {
-        return this.newFun;
-    }
+	public void setNewTable(String newTable) {
+		this.newTable = newTable;
+	}
 
-    public void setNewFun(String newFun) {
-        this.newFun = newFun;
-    }
+	public String getOldFun() {
+		return this.oldFun;
+	}
 
-    public String getPath() {
-        return this.path;
-    }
+	public void setOldFun(String oldFun) {
+		this.oldFun = oldFun;
+	}
 
-    public void setPath(String path) {
-        this.path = path;
-    }
+	public String getNewFun() {
+		return this.newFun;
+	}
 
-    public String getOutPath() {
-        return this.outPath;
-    }
+	public void setNewFun(String newFun) {
+		this.newFun = newFun;
+	}
 
-    public void setOutPath(String outPath) {
-        this.outPath = outPath;
-    }
+	public String getPath() {
+		return this.path;
+	}
 
-    public String getOldRec() {
-        return this.oldRec;
-    }
+	public void setPath(String path) {
+		this.path = path;
+	}
 
-    public void setOldRec(String oldRec) {
-        this.oldRec = oldRec;
-    }
+	public String getOutPath() {
+		return this.outPath;
+	}
 
-    public String getNewRec() {
-        return this.newRec;
-    }
+	public void setOutPath(String outPath) {
+		this.outPath = outPath;
+	}
 
-    public void setNewRec(String newRec) {
-        this.newRec = newRec;
-    }
+	public String getOldRec() {
+		return this.oldRec;
+	}
 
-    // ================================================
-    // == [Enumeration types] Block Start
-    // == [Enumeration types] Block End
-    // ================================================
-    // == [static variables] Block Start
-    // == [static variables] Block Stop
-    // ================================================
-    // == [instance variables] Block Start
-    // == [instance variables] Block Stop
-    // ================================================
-    // == [static Constructor] Block Start
-    // == [static Constructor] Block Stop
-    // ================================================
-    // == [Constructors] Block Start (含init method)
-    // == [Constructors] Block Stop
-    // ================================================
-    // == [Static Method] Block Start
-    // == [Static Method] Block Stop
-    // ================================================
-    // == [Accessor] Block Start
-    // == [Accessor] Block Stop
-    // ================================================
-    // == [Overrided Method] Block Start (Ex. toString/equals+hashCode)
-    // == [Overrided Method] Block Stop
-    // ================================================
-    // == [Method] Block Start
-    // ####################################################################
-    // ## [Method] sub-block :
-    // ####################################################################
-    // == [Method] Block Stop
-    // ================================================
-    // == [Inner Class] Block Start
-    // == [Inner Class] Block Stop
-    // ================================================
+	public void setOldRec(String oldRec) {
+		this.oldRec = oldRec;
+	}
+
+	public String getNewRec() {
+		return this.newRec;
+	}
+
+	public void setNewRec(String newRec) {
+		this.newRec = newRec;
+	}
+
+	public String getNewOutPutPath() {
+		return newOutPutPath;
+	}
+
+	public void setNewOutPutPath(String newOutPutPath) {
+		this.newOutPutPath = newOutPutPath;
+	}
+
+	// ================================================
+	// == [Enumeration types] Block Start
+	// == [Enumeration types] Block End
+	// ================================================
+	// == [static variables] Block Start
+	// == [static variables] Block Stop
+	// ================================================
+	// == [instance variables] Block Start
+	// == [instance variables] Block Stop
+	// ================================================
+	// == [static Constructor] Block Start
+	// == [static Constructor] Block Stop
+	// ================================================
+	// == [Constructors] Block Start (含init method)
+	// == [Constructors] Block Stop
+	// ================================================
+	// == [Static Method] Block Start
+	// == [Static Method] Block Stop
+	// ================================================
+	// == [Accessor] Block Start
+	// == [Accessor] Block Stop
+	// ================================================
+	// == [Overrided Method] Block Start (Ex. toString/equals+hashCode)
+	// == [Overrided Method] Block Stop
+	// ================================================
+	// == [Method] Block Start
+	// ####################################################################
+	// ## [Method] sub-block :
+	// ####################################################################
+	// == [Method] Block Stop
+	// ================================================
+	// == [Inner Class] Block Start
+	// == [Inner Class] Block Stop
+	// ================================================
 }

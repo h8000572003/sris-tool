@@ -1,13 +1,13 @@
 package com.iisi.web;
 
-import java.io.File;
 import java.io.InputStream;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.ExternalContext;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
@@ -17,10 +17,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.iisi.tool.DTO;
+import com.iisi.tool.DownLoadDTO;
 import com.iisi.tool.ExportService;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class ExportController implements Serializable {
 
 	/**
@@ -38,6 +39,15 @@ public class ExportController implements Serializable {
 	private StreamedContent file;
 
 	public ExportController() {
+
+		dto.setOldTable("m02m");
+		dto.setNewTable("m01m");
+
+		dto.setOldRec("227");
+		dto.setNewRec("228");
+
+		dto.setOldFun("327");
+		dto.setNewFun("328");
 
 		// ExternalContext externalContext = FacesContext.getCurrentInstance()
 		// .getExternalContext();
@@ -62,7 +72,12 @@ public class ExportController implements Serializable {
 		//
 		// File f = new File(absoluteDiskPath);
 
-	
+		InputStream stream = ((ServletContext) FacesContext
+				.getCurrentInstance().getExternalContext().getContext())
+				.getResourceAsStream("/resources/out/rl0x328_verify_x01.xhtml");
+		//
+		file = new DefaultStreamedContent(stream, "image/jpg",
+				"downloaded_optimus.jpg");
 
 		LOG.info("ExportController create");
 	}
@@ -75,9 +90,32 @@ public class ExportController implements Serializable {
 		this.dto = dto;
 	}
 
-	public void send() {
+	public String send() {
 		LOG.info("send");
+
 		this.exportService.export(dto);
+
+		return null;
+
+	}
+
+	public void downloadAll() {
+		InputStream stream = ((ServletContext) FacesContext
+				.getCurrentInstance().getExternalContext().getContext())
+				.getResourceAsStream("/resources/zip/out.zip");
+
+		file = new DefaultStreamedContent(stream, "image/jpg", "out.zip");
+	}
+
+	public void download(DownLoadDTO download) {
+
+		InputStream stream = ((ServletContext) FacesContext
+				.getCurrentInstance().getExternalContext().getContext())
+				.getResourceAsStream("/resources/out/" + download.getName());
+
+		file = new DefaultStreamedContent(stream, "image/jpg",
+				download.getName());
+
 	}
 
 	public StreamedContent getFile() {
