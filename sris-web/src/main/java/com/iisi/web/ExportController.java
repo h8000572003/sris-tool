@@ -40,6 +40,8 @@ public class ExportController implements Serializable {
 
 	public ExportController() {
 
+		LOG.info("ExportController begin..");
+
 		dto.setOldTable("m02m");
 		dto.setNewTable("m01m");
 
@@ -49,37 +51,8 @@ public class ExportController implements Serializable {
 		dto.setOldFun("327");
 		dto.setNewFun("328");
 
-		// ExternalContext externalContext = FacesContext.getCurrentInstance()
-		// .getExternalContext();
-		// String directory =
-		// externalContext.getInitParameter("uploadDirectory")
-		// + File.separator + "temp/";
-		//
-		// dto.setNewFun("aaaa");
-		// InputStream stream = ((ServletContext) FacesContext
-		// .getCurrentInstance().getExternalContext().getContext())
-		// .getResourceAsStream("/resources/demo/images/optimus.jpg");
-		// FacesContext.getCurrentInstance().getExternalContext().getr
+		LOG.info("ExportController end..");
 
-		// file = new DefaultStreamedContent(stream, "image/jpg",
-		// "downloaded_optimus.jpg");
-
-		// String relativeWebPath = "/resources/codes/";
-		// ServletContext servletContext = (ServletContext) FacesContext
-		// .getCurrentInstance().getExternalContext().getContext();
-		// String absoluteDiskPath =
-		// servletContext.getRealPath(relativeWebPath);
-		//
-		// File f = new File(absoluteDiskPath);
-
-		InputStream stream = ((ServletContext) FacesContext
-				.getCurrentInstance().getExternalContext().getContext())
-				.getResourceAsStream("/resources/out/rl0x328_verify_x01.xhtml");
-		//
-		file = new DefaultStreamedContent(stream, "image/jpg",
-				"downloaded_optimus.jpg");
-
-		LOG.info("ExportController create");
 	}
 
 	public DTO getDto() {
@@ -104,7 +77,7 @@ public class ExportController implements Serializable {
 				.getCurrentInstance().getExternalContext().getContext())
 				.getResourceAsStream("/resources/zip/out.zip");
 
-		file = new DefaultStreamedContent(stream, "image/jpg", "out.zip");
+		file = new DefaultStreamedContent(stream, "java/*", "out.zip");
 	}
 
 	public void download(DownLoadDTO download) {
@@ -113,7 +86,7 @@ public class ExportController implements Serializable {
 				.getCurrentInstance().getExternalContext().getContext())
 				.getResourceAsStream("/resources/out/" + download.getName());
 
-		file = new DefaultStreamedContent(stream, "image/jpg",
+		file = new DefaultStreamedContent(stream, "java/*",
 				download.getName());
 
 	}

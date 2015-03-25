@@ -17,14 +17,15 @@
 
 	<h1>職權更正產生器</h1>
 
-
 	<h:form>
+
+		<h:messages></h:messages>
 		<p:panel>
 
 			<p:fieldset legend="產生條件">
 
 
-				
+
 
 				<h:panelGrid columns="2" border="0" cellspacing="5px">
 					<h:outputLabel value="使用TABLE:"></h:outputLabel>
@@ -44,6 +45,9 @@
 
 
 				<h:commandButton value="產生" action="#{exportController.send()}"></h:commandButton>
+
+
+			
 			</p:fieldset>
 		</p:panel>
 	</h:form>

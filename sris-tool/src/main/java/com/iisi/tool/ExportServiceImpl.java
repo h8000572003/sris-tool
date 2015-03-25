@@ -21,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /**
  *
@@ -49,20 +50,17 @@ public class ExportServiceImpl implements ExportService {
 					.getExternalContext().getResource("/resources/codes/")
 					.getPath();
 			File folder = new File(path);
-			folder.deleteOnExit();
 
 			final List<File> files = new ArrayList<File>();
 
+			dto.getFiles().clear();
+
 			for (File f : folder.listFiles()) {
 				if (f.isFile()) {
-
 					files.add(f);
 				} else {
 					for (File sf : f.listFiles()) {
-
 						files.add(sf);
-
-						// this.proFile(f, dto, null);
 					}
 				}
 
@@ -74,10 +72,9 @@ public class ExportServiceImpl implements ExportService {
 			this.makeZip(dto);
 
 		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			LOG.error("e={}", e);
 
-		// TODO Auto-generated method stub
+		}
 
 	}
 
@@ -87,32 +84,31 @@ public class ExportServiceImpl implements ExportService {
 			final String path = FacesContext.getCurrentInstance()
 					.getExternalContext().getResource("/resources/out/")
 					.getPath();
-			
-			
+
 			final String zipath = FacesContext.getCurrentInstance()
 					.getExternalContext().getResource("/resources/zip/")
 					.getPath();
-			
-
-		
 
 			File folder = new File(path);
+			folder.deleteOnExit();
 
 			File outFile = new File(zipath, "/out.zip");
 			outFile.deleteOnExit();
 
 			zipComent.makeZip(folder, outFile);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOG.error("e={}", e);
 		}
 
 	}
 
+	/**
+	 * 透過來源檔案建立，建立新的java
+	 * 
+	 * @param proFile
+	 * @param dto
+	 */
 	private void proFile(File proFile, DTO dto) {
-
-		// String newFileName = proFile.getName().replace(dto.getOldFun(),
-		// dto.getNewFun());
 
 		String content = this.readCompent.getContentBy(proFile
 				.getAbsolutePath());
@@ -128,10 +124,8 @@ public class ExportServiceImpl implements ExportService {
 					.getPath();
 
 			String outPut = path
-					+ proFile.getName().replace(dto.getOldFun(),
-							dto.getNewFun());
 
-			;
+			+ proFile.getName().replace(dto.getOldFun(), dto.getNewFun());
 
 			dto.getFiles().add(
 					new DownLoadDTO(outPut, new File(outPut).getName()));
@@ -140,42 +134,8 @@ public class ExportServiceImpl implements ExportService {
 			dto.setNewOutPutPath(outPut);
 			LOG.debug("out file name={}", outPut);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOG.error("e={}", e);
 		}
 
 	}
-	// ================================================
-	// == [Enumeration types] Block Start
-	// == [Enumeration types] Block End
-	// ================================================
-	// == [static variables] Block Start
-	// == [static variables] Block Stop
-	// ================================================
-	// == [instance variables] Block Start
-	// == [instance variables] Block Stop
-	// ================================================
-	// == [static Constructor] Block Start
-	// == [static Constructor] Block Stop
-	// ================================================
-	// == [Constructors] Block Start (含init method)
-	// == [Constructors] Block Stop
-	// ================================================
-	// == [Static Method] Block Start
-	// == [Static Method] Block Stop
-	// ================================================
-	// == [Accessor] Block Start
-	// == [Accessor] Block Stop
-	// ================================================
-	// == [Overrided Method] Block Start (Ex. toString/equals+hashCode)
-	// == [Overrided Method] Block Stop
-	// ================================================
-	// == [Method] Block Start
-	// ####################################################################
-	// ## [Method] sub-block :
-	// ####################################################################
-	// == [Method] Block Stop
-	// ================================================
-	// == [Inner Class] Block Start
-	// == [Inner Class] Block Stop
-	// ================================================
 }

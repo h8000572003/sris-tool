@@ -8,13 +8,14 @@ import java.util.zip.ZipOutputStream;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * 壓縮工具
+ * 
+ * @author 1109001
+ *
+ */
 @Component
 public class ZipComent {
-
-	// 要壓縮的來源目錄
-	String sourceDir = "SOURCE PATH";
-	// 壓縮後要放置ZIP檔的目錄
-	String targetDir = "TARGE PATH";
 
 	public void makeZip(File folder, File outFile) {
 
