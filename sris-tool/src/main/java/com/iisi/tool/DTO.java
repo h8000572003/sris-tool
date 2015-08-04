@@ -10,10 +10,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.iisi.tool.ob.Observable;
+
 /**
  *
  */
-public class DTO implements Serializable {
+public class DTO extends Observable implements Serializable {
 
 	/**
 	 * 
@@ -40,6 +42,7 @@ public class DTO implements Serializable {
 
 	public void setFiles(List<DownLoadDTO> files) {
 		this.files = files;
+		
 	}
 
 	public String getOldTable() {
@@ -48,14 +51,17 @@ public class DTO implements Serializable {
 
 	public void setOldTable(String oldTable) {
 		this.oldTable = oldTable;
+		this.setChanged(this);
 	}
 
 	public String getNewTable() {
 		return this.newTable;
+		
 	}
 
 	public void setNewTable(String newTable) {
 		this.newTable = newTable;
+		this.setChanged(this);
 	}
 
 	public String getOldFun() {
@@ -64,6 +70,7 @@ public class DTO implements Serializable {
 
 	public void setOldFun(String oldFun) {
 		this.oldFun = oldFun;
+		this.setChanged(this);
 	}
 
 	public String getNewFun() {
@@ -72,6 +79,7 @@ public class DTO implements Serializable {
 
 	public void setNewFun(String newFun) {
 		this.newFun = newFun;
+		this.setChanged(this);
 	}
 
 	public String getPath() {
@@ -80,6 +88,7 @@ public class DTO implements Serializable {
 
 	public void setPath(String path) {
 		this.path = path;
+		this.setChanged(this);
 	}
 
 	public String getOutPath() {
@@ -88,6 +97,7 @@ public class DTO implements Serializable {
 
 	public void setOutPath(String outPath) {
 		this.outPath = outPath;
+		this.setChanged(this);
 	}
 
 	public String getOldRec() {
@@ -96,6 +106,7 @@ public class DTO implements Serializable {
 
 	public void setOldRec(String oldRec) {
 		this.oldRec = oldRec;
+		this.setChanged(this);
 	}
 
 	public String getNewRec() {
@@ -104,6 +115,7 @@ public class DTO implements Serializable {
 
 	public void setNewRec(String newRec) {
 		this.newRec = newRec;
+		this.setChanged(this);
 	}
 
 	public String getNewOutPutPath() {
@@ -112,6 +124,7 @@ public class DTO implements Serializable {
 
 	public void setNewOutPutPath(String newOutPutPath) {
 		this.newOutPutPath = newOutPutPath;
+		this.setChanged(this);
 	}
 
 	// ================================================

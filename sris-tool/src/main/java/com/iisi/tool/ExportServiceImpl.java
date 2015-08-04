@@ -43,39 +43,38 @@ public class ExportServiceImpl implements ExportService {
 	@Autowired
 	private ZipComent zipComent;
 
+	private static final String ORG_LOCATION = "D:\\code\\sris-code";
+
 	public void export(DTO dto) {
 
 		try {
-			String path = FacesContext.getCurrentInstance()
-					.getExternalContext().getResource("/resources/codes/")
-					.getPath();
-			File folder = new File(path);
 
-			final List<File> files = new ArrayList<File>();
+			File folder = new File(ORG_LOCATION);
+			LOG.info(folder.getAbsolutePath());
 
-			dto.getFiles().clear();
-
-			for (File f : folder.listFiles()) {
-				if (f.isFile()) {
-					files.add(f);
-				} else {
-					for (File sf : f.listFiles()) {
-						files.add(sf);
-					}
-				}
-
-			}
-
-			for (File proFile : files) {
-				this.proFile(proFile, dto);
-			}
-			this.makeZip(dto);
+			this.search(folder, dto);
 
 		} catch (Exception e) {
 			LOG.error("e={}", e);
 
 		}
 
+	}
+
+	public static void main(String[] args) {
+		ExportServiceImpl service = new ExportServiceImpl();
+		// service.search(new File("D:\\code\\sris-code"));
+	}
+
+	public void search(File f, DTO dto) {
+		if (f.isFile()) {
+			LOG.info("file name:{}", f);
+			this.proFile(f, dto);
+		} else {
+			for (File eachFile : f.listFiles()) {
+				this.search(eachFile, dto);
+			}
+		}
 	}
 
 	private void makeZip(DTO dto) {
@@ -110,6 +109,8 @@ public class ExportServiceImpl implements ExportService {
 	 */
 	private void proFile(File proFile, DTO dto) {
 
+		LOG.info("in file :{}", proFile.getAbsoluteFile());
+
 		String content = this.readCompent.getContentBy(proFile
 				.getAbsolutePath());
 
@@ -119,20 +120,17 @@ public class ExportServiceImpl implements ExportService {
 
 		try {
 
-			String path = FacesContext.getCurrentInstance()
-					.getExternalContext().getResource("/resources/out/")
-					.getPath();
+			String path = proFile.getAbsolutePath();
+			path=path.replace(ORG_LOCATION, dto.getOutPath());
+			path=path.replace(dto.getOldFun(), dto.getNewFun());
 
-			String outPut = path
+			LOG.info("out file :{}", path);
 
-			+ proFile.getName().replace(dto.getOldFun(), dto.getNewFun());
+			dto.getFiles().add(new DownLoadDTO(path, new File(path).getName()));
 
-			dto.getFiles().add(
-					new DownLoadDTO(outPut, new File(outPut).getName()));
+			fileExport.export(content, path);
+			dto.setNewOutPutPath(path);
 
-			fileExport.export(content, outPut);
-			dto.setNewOutPutPath(outPut);
-			LOG.debug("out file name={}", outPut);
 		} catch (Exception e) {
 			LOG.error("e={}", e);
 		}

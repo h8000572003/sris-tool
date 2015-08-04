@@ -20,60 +20,37 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileExportImpl implements FileExport {
 
-    private transient Logger LOG = LoggerFactory.getLogger(FileExportImpl.class);
+	private transient Logger LOG = LoggerFactory
+			.getLogger(FileExportImpl.class);
 
-    public void export(String cotnet, String newName) {
 
-        File f = new File(newName);
 
-        FileWriter fw;
-        try {
+	public void export(String cotnet, String newName) {
+		File file = new File(newName);
+		if (!new File(newName).exists()) {
+			file.getParentFile().mkdirs();
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
-            fw = new FileWriter(newName);
-            fw.write(cotnet);
+		FileWriter fw;
+		try {
 
-            fw.flush();
+			fw = new FileWriter(newName);
+			fw.write(cotnet);
 
-            fw.close();
-        } catch (IOException e) {
-            LOG.error("error", e);
-        }
+			fw.flush();
 
-        ;
+			fw.close();
+		} catch (IOException e) {
+			LOG.error("error:{}", e);
+		}
 
-    }
-    // ================================================
-    // == [Enumeration types] Block Start
-    // == [Enumeration types] Block End
-    // ================================================
-    // == [static variables] Block Start
-    // == [static variables] Block Stop
-    // ================================================
-    // == [instance variables] Block Start
-    // == [instance variables] Block Stop
-    // ================================================
-    // == [static Constructor] Block Start
-    // == [static Constructor] Block Stop
-    // ================================================
-    // == [Constructors] Block Start (含init method)
-    // == [Constructors] Block Stop
-    // ================================================
-    // == [Static Method] Block Start
-    // == [Static Method] Block Stop
-    // ================================================
-    // == [Accessor] Block Start
-    // == [Accessor] Block Stop
-    // ================================================
-    // == [Overrided Method] Block Start (Ex. toString/equals+hashCode)
-    // == [Overrided Method] Block Stop
-    // ================================================
-    // == [Method] Block Start
-    // ####################################################################
-    // ## [Method] sub-block :
-    // ####################################################################
-    // == [Method] Block Stop
-    // ================================================
-    // == [Inner Class] Block Start
-    // == [Inner Class] Block Stop
-    // ================================================
+		;
+
+	}
 }
