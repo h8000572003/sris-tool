@@ -20,8 +20,8 @@ import com.iisi.tool.DTO;
 import com.iisi.tool.DownLoadDTO;
 import com.iisi.tool.ExportService;
 
-@ManagedBean
-@ViewScoped
+//@ManagedBean
+//@ViewScoped
 public class ExportController implements Serializable {
 
 	/**

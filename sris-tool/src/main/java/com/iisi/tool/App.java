@@ -22,7 +22,7 @@ public class App {
 				"beans.xml");
 
 		ExportController controller = (ExportController) context
-				.getBean("exportController");
+				.getBean("exControlller");
 
 		controller.getDto().setPath(INPUT_URL);
 		controller.getDto().setOutPath(OUTPUT_URL);
