@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/util
+         http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	<util:map id="rl0xOperationV1Map" map-class="java.util.LinkedHashMap">
+		<entry key="RL0X301">
+			<bean class="com.iisi.tool.dto.Operation">
+
+				<property name="code" value="0X301"></property>
+				<property name="title" value="全戶基本資料檔"></property>
+
+
+
+			</bean>
+		</entry>
+
+		<entry key="RL0X302">
+			<bean class="com.iisi.tool.dto.Operation">
+				<property name="code" value="0X302"></property>
+				<property name="title" value="除戶全戶基本資料檔"></property>
+			</bean>
+		</entry>
+
+		<entry key="RL0X303">
+			<bean class="com.iisi.tool.dto.Operation">
+				<property name="code" value="0X303"></property>
+				<property name="title" value="全戶動態記事檔("></property>
+			</bean>
+		</entry>
+
+		<entry key="RL0X304">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="code" value="0X303"></property>
+				<property name="title" value="全戶動態記事檔("></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X305">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="個人基本資料檔"></property>
+				<property name="recTable" value="RLDFS205"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF004M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs205Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf004mType"></property>
+			</bean>
+		</entry>
+		<entry key="RL0X306">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶個人基本資料檔"></property>
+				<property name="recTable" value="RLDFS206"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF004H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs206Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf004hType"></property>
+			</bean>
+		</entry>
+		<entry key="RL0X307">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="個人記事檔"></property>
+				<property name="recTable" value="RLDFS207"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF005M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs207Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf005mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X308">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶個人記事檔"></property>
+				<property name="recTable" value="RLDFS208"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF005H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs208Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf005hType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X309">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="個人遷徙紀錄檔"></property>
+				<property name="recTable" value="RLDFS209"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF006M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs209Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf006mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X310">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶個人遷徙紀錄檔"></property>
+				<property name="recTable" value="RLDFS210"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF006H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs210Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf006hType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X311">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="姓名更改紀錄檔"></property>
+				<property name="recTable" value="RLDFS211"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF007M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs211Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf007mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X312">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶姓名更改紀錄檔"></property>
+				<property name="recTable" value="RLDFS212"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF007H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs212Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf007hType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X313">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="特殊人口資料檔"></property>
+				<property name="recTable" value="RLDFS213"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF008M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs213Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf008mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X314">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶特殊人口資料檔"></property>
+				<property name="recTable" value="RLDFS214"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF008H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs214Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf008hType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X315">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="姓名羅馬拼音紀錄檔"></property>
+				<property name="recTable" value="RLDFS215"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF047M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs215Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf047mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X316">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶姓名羅馬拼音紀錄檔"></property>
+				<property name="recTable" value="RLDFS216"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDF047H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs216Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf048hType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X317">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="統號更改紀錄檔"></property>
+				<property name="recTable" value="RLDFS217"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM03M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs217Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm03mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X318">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶統號更改紀錄檔"></property>
+				<property name="recTable" value="RLDFS218"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM03H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs218Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm03hType"></property>
+			</bean>
+		</entry>
+		<entry key="RL0X319">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="出生日期更改紀錄檔"></property>
+				<property name="recTable" value="RLDFS219"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM09M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs219Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm09mType"></property>
+			</bean>
+		</entry>
+		<entry key="RL0X320">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶出生日期更改紀錄檔"></property>
+				<property name="recTable" value="RLDFS220"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM09H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs220Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm09hType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X321">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="戶號配賦檔"></property>
+				<property name="recTable" value="RLDFS221"></property>
+				<property name="tableType" value="3"></property>
+				<property name="table" value="RLDF021M"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs221Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf021mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X322">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="統號配賦檔"></property>
+				<property name="recTable" value="RLDFS222"></property>
+				<property name="tableType" value="3"></property>
+				<property name="table" value="RLDF022M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs222Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf022mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X323">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="歷史門牌初編資料檔"></property>
+				<property name="recTable" value="RLDFS223"></property>
+				<property name="tableType" value="3"></property>
+				<property name="table" value="RLDF018M"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs223Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf018mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X324">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="村里鄰及街路門牌變更資料檔"></property>
+				<property name="recTable" value="RLDFS224"></property>
+				<property name="tableType" value="3"></property>
+				<property name="table" value="RLDF019M"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs224Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf019mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X325">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="里鄰門牌資料檔"></property>
+				<property name="recTable" value="RLDFS225"></property>
+				<property name="tableType" value="3"></property>
+				<property name="table" value="RLDF020M"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs225Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldf020mType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X401">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="出生登記申請書"></property>
+				<property name="recTable" value="RLDFS101"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT001"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs101Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft001Type"></property>
+				<property name="credentialName" value="Rldfs001b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs001bType"></property>
+				<property name="ignoredCheck" value="Y"></property>
+
+
+			</bean>
+		</entry>
+		<entry key="RL0X402">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="死亡∕死亡宣告登記申請書"></property>
+				<property name="recTable" value="RLDFS102"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT002"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs102Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft002Type"></property>
+				<property name="obnfCompentName" value="rl0x402AppTaskObnfCompent"></property>
+				<property name="credentialName" value="Rldfs002b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs002bType"></property>
+
+
+			</bean>
+		</entry>
+		<entry key="RL0X403">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="結婚登記申請書"></property>
+				<property name="recTable" value="RLDFS103"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT003"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs103Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft003Type"></property>
+				<property name="obnfCompentName" value="rl0x403AppTaskObnfCompent"></property>
+				<property name="credentialName" value="Rldfs003b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs003bType"></property>
+			</bean>
+		</entry>
+		<entry key="RL0X404">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="離婚登記申請書"></property>
+				<property name="recTable" value="RLDFS104"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT004"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs104Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft004Type"></property>
+				<property name="obnfCompentName" value="rl0x404AppTaskObnfCompent"></property>
+				<property name="credentialName" value="Rldfs004b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs004bType"></property>
+			</bean>
+		</entry>
+
+		<entry key="RL0X405">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="認領登記申請書"></property>
+				<property name="recTable" value="RLDFS105"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT005"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs105Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft005Type"></property>
+				<property name="credentialName" value="Rldfs005b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs005bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X412">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="原住民身分及民族別登記申請書"></property>
+				<property name="recTable" value="RLDFS112"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT012"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs112Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft012Type"></property>
+				<property name="credentialName" value="Rldfs012b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs012bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X461">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="收養登記申請書"></property>
+				<property name="recTable" value="RLDFS161"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT061"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs161Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft061Type"></property>
+				<property name="credentialName" value="Rldfs061b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs061bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X462">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="終止收養登記申請書"></property>
+				<property name="recTable" value="RLDFS162"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT062"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs162Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft062Type"></property>
+				<property name="credentialName" value="Rldfs062b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs062bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X473">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="遷入登記申請書"></property>
+				<property name="recTable" value="RLDFS173"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT073"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs173Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft073Type"></property>
+				<property name="credentialName" value="Rldfs073b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs073bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X474">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="遷出登記申請書"></property>
+				<property name="recTable" value="RLDFS174"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT074"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs174Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft074Type"></property>
+				<property name="credentialName" value="Rldfs074b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs074bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X475">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="住變登記申請書"></property>
+				<property name="recTable" value="RLDFS175"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT075"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs175Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft075Type"></property>
+				<property name="credentialName" value="Rldfs075b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs075bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X479">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="監護登記申請書"></property>
+				<property name="recTable" value="RLDFS179"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT079"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs179Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft079Type"></property>
+				<property name="credentialName" value="Rldfs079b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs079bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X480">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="未成年子女權利義務行使負擔登記申請書"></property>
+				<property name="recTable" value="RLDFS180"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT080"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs180Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft080Type"></property>
+				<property name="credentialName" value="Rldfs080b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs080bType"></property>
+			</bean>
+		</entry>
+		<entry key="RL0X481">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="輔助登記申請書"></property>
+				<property name="recTable" value="RLDFS181"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT081"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs181Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft081Type"></property>
+				<property name="credentialName" value="Rldfs081b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs081bType"></property>
+			</bean>
+		</entry>
+		<entry key="RL0X482">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="分（合）戶登記申請書"></property>
+				<property name="recTable" value="RLDFS182"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT082"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs182Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft082Type"></property>
+				<property name="credentialName" value="Rldfs082b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs082bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X484">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="姓名變更申請書"></property>
+				<property name="recTable" value="RLDFS184"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT084"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs184Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft084Type"></property>
+				<property name="credentialName" value="Rldfs084b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs084bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X485">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="姓名更正申請書"></property>
+				<property name="recTable" value="RLDFS185"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT085"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs185Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft085Type"></property>
+				<property name="credentialName" value="Rldfs085b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs085bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X477">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="初設戶籍登記申請書資料檔"></property>
+				<property name="recTable" value="RLDFS177"></property>
+				<property name="tableType" value="2"></property>
+				<property name="table" value="RLDFT077"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs177ype"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldft077Type"></property>
+				<property name="credentialName" value="Rldfs077b"></property>
+				<property name="credentialPackagePath" value="tw.gov.moi.domain.Rldfs077bType"></property>
+
+			</bean>
+		</entry>
+		<entry key="RL0X326">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="全國個人資料摘要檔"></property>
+				<property name="recTable" value="RLDFS226"></property>
+				<property name="tableType" value="3"></property>
+				<property name="table" value="RCDF001MRL"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs226Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rcdf001mrlType"></property>
+
+
+			</bean>
+		</entry>
+
+		<entry key="RL0X327">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="婚姻紀錄檔"></property>
+				<property name="recTable" value="RLDFS227"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM02M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs227Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm02mType"></property>
+
+			</bean>
+		</entry>
+
+		<entry key="RL0X328">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="出生資料檔"></property>
+				<property name="recTable" value="RLDFS228"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM01M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs228Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm01mType"></property>
+			</bean>
+		</entry>
+
+
+
+		<entry key="RL0X329">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="認領、收養記錄檔"></property>
+				<property name="recTable" value="RLDFS229"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM04M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs229Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm04mType"></property>
+
+			</bean>
+		</entry>
+
+
+
+		<entry key="RL0X330">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="監護、輔助、未成年子女資料檔"></property>
+				<property name="recTable" value="RLDFS230"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM05M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs230Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm05mType"></property>
+
+			</bean>
+		</entry>
+
+
+
+		<entry key="RL0X331">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="監護、輔助、未成年子女記錄檔"></property>
+				<property name="recTable" value="RLDFS231"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM08M"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs231Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm08mType"></property>
+
+
+			</bean>
+
+
+		</entry>
+
+		<entry key="RL0X332">
+			<bean class="tw.gov.moi.rl.component.dto.Rl0xV1Operation">
+
+				<property name="tableName" value="除戶婚姻紀錄檔"></property>
+				<property name="recTable" value="RLDFS232"></property>
+				<property name="tableType" value="1"></property>
+				<property name="table" value="RLDFM02H"></property>
+				<property name="personField" value="person_Id"></property>
+				<property name="recFullName" value="tw.gov.moi.domain.Rldfs232Type"></property>
+				<property name="tableFullName" value="tw.gov.moi.domain.Rldfm02hType"></property>
+			</bean>
+		</entry>
+
+	</util:map>
+
+	<!-- 設定監聽器 -->
+
+	<bean id="rl0x326AppTaskCompent" class="tw.gov.moi.rl.component.rl0xxxx.Rl0x326AppTaskCompent">
+		<property name="rl0xTaskVerifyCompnetListener">
+			<ref bean="baseRl0xTaskVerifyCompnetListener" /><!-- 基本驗證 -->
+		</property>
+
+	</bean>
+	<bean id="rl0x327AppTaskCompent" class="tw.gov.moi.rl.component.rl0xxxx.Rl0x327AppTaskCompent">
+		<property name="rl0xTaskVerifyCompnetListener">
+			<ref bean="baseRl0xTaskVerifyCompnetListener" /><!-- 基本驗證 -->
+		</property>
+
+	</bean>
+
+
+
+
+
+</beans>

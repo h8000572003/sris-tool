@@ -1,5 +1,6 @@
 package com.iisi.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -62,7 +63,7 @@ public class WordCompnetImpl implements WordCompnet {
 				for (int z = 0; z < p.numCharacterRuns(); z++) {
 					CharacterRun run = p.getCharacterRun(z);
 					String text = run.text();
-					LOG.info("word{} :{}",z,text);
+					LOG.info("word{} :{}", z, text);
 					if (text.contains(findText)) {
 						run.replaceText(findText, replaceText);
 					}

@@ -49,12 +49,6 @@ public class ExcelCheckServiceImpl implements ExcelCheckService {
 		ExcelCheckServiceImpl service = new ExcelCheckServiceImpl();
 		service.exportExcel(new ExcelDTO());
 
-//		Pattern rldfPattern = Pattern.compile(".*0X301.*");
-//		if (rldfPattern.matcher("RL0X301.doc").matches()) {
-//			LOG.info(" match!");
-//		} else {
-//			LOG.info("NO match!");
-//		}
 	}
 
 	private void check(ExcelCheckDTO task, ExcelDTO dto) {
@@ -135,13 +129,15 @@ public class ExcelCheckServiceImpl implements ExcelCheckService {
 		}
 
 		try {
-			FileOutputStream fOut = new FileOutputStream(BASE_PATH
-					+ "\\work.xls");
+			final String outPut = BASE_PATH + "\\work.xls";
+			FileOutputStream fOut = new FileOutputStream(outPut);
 			workbook.write(fOut);
 			fOut.flush();
 			fOut.close();
+			LOG.info("create new xls:{}", outPut);
 		} catch (Exception e) {
 			e.printStackTrace();
+			LOG.error("e:{}", e.getMessage(), e);
 		}
 	}
 
