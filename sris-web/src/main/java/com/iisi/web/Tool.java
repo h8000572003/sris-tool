@@ -22,7 +22,7 @@ import com.iisi.view.WordPanel;
 import javax.swing.JMenu;
 
 public class Tool {
-	
+
 	private Logger LOG = LoggerFactory.getLogger(ExportController.class);
 
 	private JFrame frame;
@@ -67,32 +67,32 @@ public class Tool {
 
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		
+
 		JMenu mnNewMenu = new JMenu("New menu");
 		menuBar.add(mnNewMenu);
-		
-		this.config(frame, mnNewMenu);
-		
 
+		this.config(frame, mnNewMenu);
 
 	}
 
 	private void config(JFrame frame, JMenu menuBar) {
-		final Map<String, JPanel> map = this.getPageMap();
+		final Map<String, JPanel> map = getPageMap();
 
 		for (final Entry<String, JPanel> entry : map.entrySet()) {
 			frame.getContentPane().add(entry.getValue());
+			entry.getValue().setVisible(true);
 
 			JMenuItem menuItem = new JMenuItem(entry.getKey());
 			menuItem.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					LOG.info("");
+					LOG.info("e:{}", e);
+
 					for (Entry<String, JPanel> mentry : map.entrySet()) {
 						entry.getValue().setVisible(false);
 					}
+					JMenuItem jmenu = (JMenuItem) e.getSource();
+					map.get(jmenu.getText()).setVisible(true);
 
-					entry.getValue().setVisible(true);
-					
 				}
 			});
 			menuBar.add(menuItem);
