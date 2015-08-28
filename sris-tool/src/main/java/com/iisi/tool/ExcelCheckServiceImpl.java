@@ -9,9 +9,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFPalette;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -19,10 +23,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExcelCheckServiceImpl implements ExcelCheckService {
 
-	private static final String BASE_PATH = "F:\\sris-tool-resource";
+	private static final String BASE_PATH = "D:\\sris-tool-resource";
 
-	private static transient Logger LOG = LoggerFactory
-			.getLogger(ExportController.class);
+	private static transient Logger LOG = LoggerFactory.getLogger(ExportController.class);
 
 	public void exportExcel(ExcelDTO dto) {
 		// TODO Auto-generated method stub
@@ -88,21 +91,41 @@ public class ExcelCheckServiceImpl implements ExcelCheckService {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("檢查清單");
 
+	
+		
+		HSSFPalette palette = workbook.getCustomPalette();	
+		
+		short colorIndex = 45; 
+		palette.setColorAtIndex(colorIndex, (byte)253, (byte)233, (byte)217); 
+		
+		CellStyle tCs = workbook.createCellStyle();
+		tCs.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+		tCs.setFillForegroundColor(colorIndex);
+		
+		tCs.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+		tCs.setBorderTop(HSSFCellStyle.BORDER_THIN);
+		tCs.setBorderRight(HSSFCellStyle.BORDER_THIN);
+		tCs.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+
 		HSSFRow row0 = sheet.createRow(0);
 
 		HSSFCell title_1 = row0.createCell(0);
+		title_1.setCellStyle(tCs);
 		title_1.setCellType(HSSFCell.CELL_TYPE_STRING);
 		title_1.setCellValue("功能名稱");
 
 		HSSFCell title_2 = row0.createCell(1);
+		title_2.setCellStyle(tCs);
 		title_2.setCellType(HSSFCell.CELL_TYPE_STRING);
 		title_2.setCellValue("PDS");
 
 		HSSFCell title_3 = row0.createCell(2);
+		title_3.setCellStyle(tCs);
 		title_3.setCellType(HSSFCell.CELL_TYPE_STRING);
 		title_3.setCellValue("SRS");
 
 		HSSFCell title_4 = row0.createCell(3);
+		title_4.setCellStyle(tCs);
 		title_4.setCellType(HSSFCell.CELL_TYPE_STRING);
 		title_4.setCellValue("教育");
 

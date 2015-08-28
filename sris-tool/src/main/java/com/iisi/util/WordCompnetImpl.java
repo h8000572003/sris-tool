@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -22,11 +23,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class WordCompnetImpl implements WordCompnet {
 
-	private static transient Logger LOG = LoggerFactory
-			.getLogger(WordCompnetImpl.class);
+	private static transient Logger LOG = LoggerFactory.getLogger(WordCompnetImpl.class);
 
-	public void copyFromTemplate(String templatePath, Map<String, String> map,
-			String outPath) {
+	public static void main(String[] args) {
+		WordCompnet wordCompnet = new WordCompnetImpl();
+
+		HashMap<String, String> map = new HashMap<String, String>();
+		wordCompnet.copyFromTemplate("D:\\test_replace_out\\ITS_RL_0X328.xls", map,
+				"D:\\test_replace_out\\ITS_RL_0X328_bak.xls");
+	}
+
+	public void copyFromTemplate(String templatePath, Map<String, String> map, String outPath) {
 
 		POIFSFileSystem fs = null;
 		try {
@@ -49,8 +56,7 @@ public class WordCompnetImpl implements WordCompnet {
 
 	}
 
-	private HWPFDocument replaceText(HWPFDocument doc, String findText,
-			String replaceText) {
+	private HWPFDocument replaceText(HWPFDocument doc, String findText, String replaceText) {
 		Range r1 = doc.getRange();
 
 		for (int i = 0; i < r1.numSections(); ++i) {
@@ -73,8 +79,7 @@ public class WordCompnetImpl implements WordCompnet {
 		return doc;
 	}
 
-	private void saveWord(String filePath, HWPFDocument doc)
-			throws FileNotFoundException, IOException {
+	private void saveWord(String filePath, HWPFDocument doc) throws FileNotFoundException, IOException {
 		FileOutputStream out = null;
 		try {
 			out = new FileOutputStream(filePath);
@@ -84,8 +89,7 @@ public class WordCompnetImpl implements WordCompnet {
 		}
 	}
 
-	public void copyFromTemplate(String templatePath,
-			List<Map<String, String>> mapList, List<String> outPath) {
+	public void copyFromTemplate(String templatePath, List<Map<String, String>> mapList, List<String> outPath) {
 		int index = 0;
 		for (Map<String, String> map : mapList) {
 			this.copyFromTemplate(templatePath, map, outPath.get(index));

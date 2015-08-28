@@ -41,7 +41,6 @@ public class View1 {
 	public View1() {
 		initialize();
 	}
-
 	/**
 	 * Initialize the contents of the frame.
 	 * 

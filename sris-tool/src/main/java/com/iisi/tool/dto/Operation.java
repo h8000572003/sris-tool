@@ -1,8 +1,8 @@
 package com.iisi.tool.dto;
 
 public class Operation {
-	private String code = "";
-	private String title = "";
+	private String code = "";//RL0XXXX
+	private String title = "";//ex 出生申請書職權更正
 	private String fileName = "";
 	public String getCode() {
 		return code;
